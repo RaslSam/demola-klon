@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Water scarcity</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<meta charset="utf-8">
+</head>
+<body>
+
+	<header>
+		<h1>Water Scarcity Data</h1>
+		<h2>Information</h2>
+	</header>
+
+
+	<article>
+		<p>Water scarcity is the lack of sufficient available water resources to meet the demands of water usage within a region. It already affects every continent and around 2.8 billion people around the world at least one month out of every year. More than 1.2 billion people lack access to clean drinking water.Water scarcity involves water stress, water shortage or deficits, and water crisis.While the concept of water stress is relatively new, it is the difficulty of obtaining sources of fresh water for use during a period of time and may result in further depletion and deterioration of available water resources.Water shortages may be caused by climate change, such as altered weather patterns including droughts or floods, increased pollution, and increased human demand and overuse of water.</p>
+	</article>
+
+
+	<nav >
+		<ul>
+			<li class="links"><a href="pollution.html#">Countries per pollution</a></li>
+			<li class="links"><a href="usage.html#">Countries per water usage</a></li>
+			<li class="links"><a href="cleaning.html#">Countries per water cleaning</a></li>
+			<li class="links"><a href="supply.html#">Countries per water supply</a></li>
+		</ul>
+	</nav>
+
+	<div class="user">
+		<label for="login">Login</label>
+		<input type="text" id="login">
+		<br>
+		<label for="password">Password</label>
+		<input type="password" id="password">
+		<input type="button" value="Log in" id="btn">
+	</div>
+
+
+	<aside class="fun-facts">
+		<h1>Water interesting facts</h1>	
+		<ul>
+			<li>30% of fresh water is in the ground</li>
+			<li>Water can dissolve more substances than any other liquid including sulfuric acid</li>
+			<li>A jellyfish and a cucumber are each 95% water</li>
+		</ul>
+	</aside>
+	
+	<footer class="reg">
+		<p>&reg;Demola inc.</p>
+	</footer>
+
+	<script>
+		var login=document.getElementById("login")
+		var password=document.getElementById("password")
+		var btn=document.getElementById("btn")
+
+		btn.addEventListener("click",()=>{
+			if (login.value=="Guluqiz" && password.value=="Resulbal"){
+				window.location.href="personal.html"
+			}
+			else{
+				alert("Duzgun daxil edin")
+			}
+		})
+	</script>
+
+</body>
+</html>

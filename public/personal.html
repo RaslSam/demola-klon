@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Personal Page</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<meta charset="utf-8">
+</head>
+<body>
+	<header>
+		<h1>Personal Dashboard</h1>
+	</header>
+
+	<div class="buttons">
+		<input type="button" name="year" value="Yearly" id="year">
+		<input type="button" name="month" value="Monthly" id="month">
+		<input type="button" name="week" value="Weekly" id="week">
+		<input type="button" name="daily" value="Daily" id="daily">
+	</div>
+
+	<div class="container">
+		<div class="usage">
+			<h1>Total Usage</h1>
+			<p id="num" data-index="year">6747373</p>
+		</div>
+
+		<div class="contribution">
+			<h1>Total Contribution</h1>
+			<p id="cont">15%</p>
+		</div>
+	</div>
+
+	<input type="button" id="main-menu" value="Main Menu">
+
+	<script>
+		window.onload=init
+
+		var usage=document.getElementById("num")
+		var year=document.getElementById("year")
+		var month=document.getElementById("month")
+		var week=document.getElementById("week")
+		var main=document.getElementById("main-menu")
+		var time=1000
+
+		main.addEventListener("click",()=>{
+			window.location.href="index.html"
+		})
+
+		year.addEventListener("click",()=>{
+			if (usage.dataset.index==="month"){
+				usage.innerHTML=Number(usage.innerHTML)*12
+				usage.dataset.index="year"
+				time=1000
+			}
+			else if(usage.dataset.index==="week"){
+				usage.innerHTML=Math.floor(Number(usage.innerHTML)*56)
+				usage.dataset.index="year"
+				time=1000
+			}
+			else if(usage.dataset.index==="daily"){
+				usage.innerHTML=Math.floor(Number(usage.innerHTML)*56*7)
+				usage.dataset.index="year"
+				time=1000
+			}
+		})
+
+		month.addEventListener("click",()=>{
+			if (usage.dataset.index==="year"){
+				usage.innerHTML=Math.floor(Number(usage.innerHTML)/12)
+				usage.dataset.index="month"
+				time=800
+			}
+			else if(usage.dataset.index==="week"){
+				usage.innerHTML=Math.floor(Number(usage.innerHTML)*56/12)
+				usage.dataset.index="month"
+				time=800
+			}
+			else if(usage.dataset.index==="daily"){
+				usage.innerHTML=Math.floor(Number(usage.innerHTML)*30)
+				usage.dataset.index="month"
+				time=800
+			}
+		})
+
+		week.addEventListener("click",()=>{
+			if (usage.dataset.index==="year"){
+				usage.innerHTML=Math.floor(Number(usage.innerHTML)/56)
+				usage.dataset.index="week"
+				time=600
+			}
+			else if(usage.dataset.index==="month"){
+				usage.innerHTML=Math.floor(Number(usage.innerHTML)*12/56)
+				usage.dataset.index="week"
+				time=600
+			}
+			else if(usage.dataset.index==="daily"){
+				usage.innerHTML=Math.floor(Number(usage.innerHTML)*7)
+				usage.dataset.index="week"
+				time=600
+			}
+		})
+
+		daily.addEventListener("click",()=>{
+			if (usage.dataset.index==="year"){
+				usage.innerHTML=Math.floor(Number(usage.innerHTML)/365)
+				usage.dataset.index="daily"
+				time=300
+			}
+			else if(usage.dataset.index==="month"){
+				usage.innerHTML=Math.floor(Number(usage.innerHTML)/30)
+				usage.dataset.index="daily"
+				time=300
+			}
+			else if(usage.dataset.index==="week"){
+				usage.innerHTML=Math.floor(Number(usage.innerHTML)/7)
+				usage.dataset.index="daily"
+				time=300
+			}
+		})
+
+		function init(){
+			usage.innerHTML=Number(usage.innerHTML)+50
+			setTimeout(init, time)
+		}
+
+
+
+	</script>
+</body>
+</html>
